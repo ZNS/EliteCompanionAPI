@@ -6,4 +6,6 @@ The library allows to manage multiple logins. Information about each login is st
 
 On first login an email will be sent from Frontier with a verification code. This can then be verified using the library.
 
+Profile data is returned as raw json and is cached for 60 seconds. This means you cannot pull the server for fresh data more often than that.
+
 An example on how to use the library can be seen in the EliteCompanionCommand-app.

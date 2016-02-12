@@ -22,7 +22,7 @@ namespace ZNS.EliteCompanionAPI
         private static HttpHelper _Http;
         private static Profile _CurrentProfile;
         private static string _DataPath;
-        internal static string DataPath { get { return _DataPath; } }
+        internal string DataPath { get { return _DataPath; } }
         
         private EliteCompanion()
         {
@@ -178,7 +178,8 @@ namespace ZNS.EliteCompanionAPI
                 }
                 else if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    loginResponse.Status = LoginStatus.Ok;
+                    //No redirect on login, probably wrong password
+                    loginResponse.Status = LoginStatus.IncorrectCredentials;
                 }
                 else
                 {

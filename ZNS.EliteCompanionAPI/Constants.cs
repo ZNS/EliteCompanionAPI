@@ -12,6 +12,6 @@ namespace ZNS.EliteCompanionAPI
         public static readonly string VERIFICATION_REDIRECT_PATH = "/user/confirm";
         public static readonly string CACHE_PROFILEJSON = "zns.elitecompanion.profilejson";
         public static readonly int CACHE_PROFILE_SECONDS = 60;
-        public static readonly string DEFAULT_DATA_PATH = "./";
+        public static readonly string APPSETTING_DATAPATH = "zns.elitecompanion.datapath";
     }
 }

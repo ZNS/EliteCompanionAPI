@@ -20,11 +20,11 @@ namespace ZNS.EliteCompanionAPI.Models
 
         public static Profile Load(string email)
         {
-            string fileName = "profile" + email.ToLower().GetHashCode().ToString() + ".dat";
-            if (File.Exists("./" + fileName))
+            string filePath = EliteCompanion.Instance.DataPath.TrimEnd('\\') + "\\profile" + email.ToLower().GetHashCode().ToString() + ".dat";
+            if (File.Exists(filePath))
             {
                 BinaryFormatter bin = new BinaryFormatter();
-                using (Stream fileStream = File.OpenRead("./" + fileName))
+                using (Stream fileStream = File.OpenRead(filePath))
                 {
                     var profile = (Profile)bin.Deserialize(fileStream);
                     profile.LoggedIn = false;
@@ -37,9 +37,9 @@ namespace ZNS.EliteCompanionAPI.Models
         public void Save()
         {
             //Save
-            string fileName = "profile" + Email.ToLower().GetHashCode().ToString() + ".dat";
+            string filePath = EliteCompanion.Instance.DataPath.TrimEnd('\\') + "\\profile" + Email.ToLower().GetHashCode().ToString() + ".dat";
             BinaryFormatter bin = new BinaryFormatter();
-            using (var fileStream = File.OpenWrite("./" + fileName))
+            using (var fileStream = File.OpenWrite(filePath))
             {
                 bin.Serialize(fileStream, this);
             }

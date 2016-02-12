@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Specialized;
+using System.Configuration;
 using System.IO;
 using System.Net;
 using System.Runtime.Caching;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Hosting;
 using System.Web.Security;
 using NLog;
 using ZNS.EliteCompanionAPI.Models;
@@ -19,9 +21,20 @@ namespace ZNS.EliteCompanionAPI
         private static MemoryCache _Cache = MemoryCache.Default;
         private static HttpHelper _Http;
         private static Profile _CurrentProfile;
-
+        private static string _DataPath;
+        internal static string DataPath { get { return _DataPath; } }
+        
         private EliteCompanion()
         {
+            _DataPath = "./";
+            if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings[Constants.APPSETTING_DATAPATH]))
+            {
+                _DataPath = ConfigurationManager.AppSettings[Constants.APPSETTING_DATAPATH];
+                if (_DataPath.StartsWith("/") || _DataPath.StartsWith("~"))
+                {
+                    _DataPath = HostingEnvironment.MapPath(_DataPath);
+                }
+            }
         }
 
         #region Singleton

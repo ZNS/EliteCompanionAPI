@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZNS.EliteCompanionAPI", "ZNS.EliteCompanionAPI\ZNS.EliteCompanionAPI.csproj", "{50546805-F69D-4C2E-B2C5-2442864AB465}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZNS.EliteCompanionCommand", "ZNS.EliteCompanionCommand\ZNS.EliteCompanionCommand.csproj", "{B42EB07F-12EA-460B-9937-7F19247D4731}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50546805-F69D-4C2E-B2C5-2442864AB465}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50546805-F69D-4C2E-B2C5-2442864AB465}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50546805-F69D-4C2E-B2C5-2442864AB465}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50546805-F69D-4C2E-B2C5-2442864AB465}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B42EB07F-12EA-460B-9937-7F19247D4731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B42EB07F-12EA-460B-9937-7F19247D4731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B42EB07F-12EA-460B-9937-7F19247D4731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B42EB07F-12EA-460B-9937-7F19247D4731}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

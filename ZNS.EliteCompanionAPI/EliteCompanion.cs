@@ -35,6 +35,7 @@ namespace ZNS.EliteCompanionAPI
                     _DataPath = HostingEnvironment.MapPath(_DataPath);
                 }
             }
+            _Logger.Debug("Datapath is: " + _DataPath);
         }
 
         #region Singleton
@@ -240,18 +241,18 @@ namespace ZNS.EliteCompanionAPI
         /// Get json profile data for active profile. Will attempt login. It's only possible to get fresh data every 60 seconds
         /// </summary>
         /// <returns>Profile response object</returns>
-        public Task<ProfileResponse> GetProfileData()
+        public Task<ProfileResponse> GetProfileData(bool force = false)
         {
-            return GetProfileDataInternal();
+            return GetProfileDataInternal(force);
         }
 
-        private async Task<ProfileResponse> GetProfileDataInternal()
+        private async Task<ProfileResponse> GetProfileDataInternal(bool force)
         {
             //We don't want to allow hammering of the API, so we cache response for 60 seconds.
             var profileResponse = new ProfileResponse();
             profileResponse.LoginStatus = LoginStatus.Ok;
             string cachedResponse = _Cache.Get(Constants.CACHE_PROFILEJSON) as string;
-            if (!String.IsNullOrEmpty(cachedResponse))
+            if (!String.IsNullOrEmpty(cachedResponse) && !force)
             {
                 profileResponse.Cached = true;
                 profileResponse.HttpStatusCode = HttpStatusCode.OK;
